@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mydeployment
+  labels:
+    app: dev
+spec:
+  replicas: 4
+  selector:
+    matchLabels:
+      app: dev
+  template:
+    metadata:
+      name: mydeploymentpod
+      labels:
+        app: dev
+    spec:
+      containers:
+      - name: mydepoymentcontainer
+        image: ghoshaloke2007/yellownginximage
+        ports:
+        - containerPort: 80
